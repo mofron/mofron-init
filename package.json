@@ -1,6 +1,6 @@
 {
   "name": "mofron-init",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "initialize mofron develop environment",
   "main": "index.js",
   "bin": {
