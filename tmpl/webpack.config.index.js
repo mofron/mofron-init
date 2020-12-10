@@ -1,28 +1,27 @@
-const webpack =　require("webpack");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
+const path = require('path');
+  
 module.exports = {
-  entry: __dirname + '/../js/index.js',
+  entry: path.resolve(__dirname, '../js/index.js'),
   output: {
-      path: __dirname + '/../dist/index',
-      filename: 'dist_index.js'
+    path: path.resolve(__dirname, '../dist/index/'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: __dirname + '../../node_modules/',
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env",
+              ],
+            },
+          },
+        ],
+      },
+    ],
   },
-  plugins: [
-    new UglifyJsPlugin()
-  ],
-  //target: "node"
+  target: ["web", "es5"],
 };
