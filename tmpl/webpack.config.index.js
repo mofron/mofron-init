@@ -1,27 +1,42 @@
-const path = require('path');
-  
+const webpack =　require("webpack");
+
 module.exports = {
-  entry: path.resolve(__dirname, '../js/index.js'),
+  entry: __dirname + '/../js/index.js',
   output: {
-    path: path.resolve(__dirname, '../dist/index/'),
-    filename: 'bundle.js'
+      path: __dirname + '/../dist/index',
+      filename: 'dist_index.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
+        exclude: __dirname + '../../node_modules/',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
                 "@babel/preset-env",
-              ],
-            },
-          },
-        ],
+                {
+                  "targets": {
+                    "node": "current"
+                  }
+                }
+              ]
+            ]
+          }
+        }
       },
-    ],
-  },
-  target: ["web", "es5"],
+      {
+        test: require.resolve("mofron"),
+        loader: "expose-loader",
+        options: {
+          exposes: {
+	    globalName: "_mofron",
+            moduleLocalName: "mofron"
+          }
+        }
+      }
+    ]
+  }
 };
