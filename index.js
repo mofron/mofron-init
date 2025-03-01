@@ -28,8 +28,7 @@ fs.copyFile(__dirname + "/tmpl/index.mf", tgt + "/mof/index.mf",
 );
 
 try { fs.mkdirSync(tgt + "/dist"); } catch (e) {}
-try { fs.mkdirSync(tgt + "/dist/index"); } catch (e) {}
-fs.copyFile(__dirname + "/tmpl/index.html", tgt + "/dist/index/index.html",
+fs.copyFile(__dirname + "/tmpl/index.html", tgt + "/dist/index.html",
     (err) => {
         if (err) {
             console.error(err);
