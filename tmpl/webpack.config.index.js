@@ -5,7 +5,7 @@ module.exports = {
   //mode: 'production',
   entry: __dirname + '/../js/index.js',
   output: {
-      path: __dirname + '/../dist/js/',
+      path: __dirname + '/../dist/',
       filename: 'index.js'
   },
   module: {
