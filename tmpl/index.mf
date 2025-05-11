@@ -1,11 +1,6 @@
 <setting>
     <!-- defined here tag name -->
     <tag load="mofron-comp-text">Text</tag>
-    <html-style>
-        <mf-access device=mobile orientation=portrait>font-size:625%;</mf-access>
-        <mf-access device=mobile orientation=landscape>font-size:800%;</mf-access>
-        <mf-access device=tablet>font-size:800%;</mf-access>
-    </html-style>
 </setting>
 
 <Text>hello mofron</Text>
